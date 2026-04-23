@@ -1,0 +1,12 @@
+name: Demo calling resuable workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    uses: ./.github/workflows/resuable-workflow.yml
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Done!
