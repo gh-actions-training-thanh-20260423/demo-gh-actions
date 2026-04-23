@@ -1,0 +1,22 @@
+name: Demo Github Actions Events
+run-name: Demo GitHub Actions Events
+
+on:
+  # Webhook events
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+    branches: [main]
+  issues:
+    types: 
+      - opened
+      - closed
+
+jobs:
+  Greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Good morning"
