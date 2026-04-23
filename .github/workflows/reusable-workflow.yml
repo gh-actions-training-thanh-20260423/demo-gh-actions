@@ -1,0 +1,11 @@
+name: Resuable workfow
+
+on:
+  workflow_call:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo Hello world
