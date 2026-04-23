@@ -49,5 +49,11 @@ jobs:
         run: echo ${{ inputs.yourName }}
       - name: Feeling good
         run: echo ${{ inputs.feelingGood }}
+      - name: Print only if you are feeling good
+        run: echo "Great! Have a nice workshop!"
+        if: ${{ inputs.feelingGood == true }}
+      - name: Print only if you are feeling bad
+        run: echo "No worries! I'm here with you 😊"
+        if: inputs.feelingGood == false
       - name: GitHub Actions is
         run: echo ${{ inputs.howYouFindGitHubActions }}
