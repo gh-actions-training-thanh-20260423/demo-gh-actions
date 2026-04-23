@@ -54,7 +54,7 @@ jobs:
           GREETING_WORD: Good morning
         run: echo ${{ env.GREETING_WORD }}
       - name: Say hello (job level env variables)
-        run: echo ${{ env.GREETING_WORD }}
+        run: echo $GREETING_WORD
       - name: Feeling good
         run: echo ${{ inputs.feelingGood }}
       - name: Print only if you are feeling good
