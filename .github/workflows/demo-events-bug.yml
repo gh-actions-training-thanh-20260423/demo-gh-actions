@@ -1,0 +1,53 @@
+name: Demo Github Actions Events NEW
+run-name: Demo GitHub Actions Events NEW
+
+on:
+  # Webhook events
+  push:
+    branches:
+      - main
+      - feature/*
+  pull_request:
+    branches: [main]
+  issues:
+    types: 
+      - opened
+      - closed
+
+  # Scheduled events
+  schedule:
+    - cron: 0 9 * * *
+    - cron: 0 12 * * 0
+
+  # Manual events
+  workflow_dispatch: 
+    inputs:
+      yourName:
+        description: What's your name?
+        required: true
+        default: My friend
+      feelingGood:
+        description: Are you feeling good?
+        required: true
+        type: boolean
+      howYouFindGitHubActions:
+        description: How do you find GitHub Actions?
+        required: true
+        type: choice
+        options:
+          - Awesome
+          - Okay
+          - Na
+
+jobs:
+  Greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Good morning"
+      - name: Your name
+        run: echo ${{ inputs.yourName }}
+      - name: Feeling good
+        run: echo ${{ inputs.feelingGood }}
+      - name: GitHub Actions is
+        run: echo ${{ inputs.howYouFindGitHubActions }}
