@@ -13,6 +13,14 @@ on:
     types: 
       - opened
       - closed
+  
+  # Scheduled events
+  schedule:
+    - cron: 0 9 * * *
+    - cron: 0 12 * * 0
+
+  # Manual events
+  workflow_dispatch: 
 
 jobs:
   Greeting:
