@@ -1,0 +1,20 @@
+name: Demo calling container action
+run-name: Demo calling container action
+
+on: 
+  workflow_dispatch:
+  
+jobs:
+  Demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo to the runner
+        uses: actions/checkout@v4
+      - name: Demo calling container action
+        id: greeting-step
+        uses: ./.github/actions/demo-container-actions
+        with:
+          greeting: "Good afternoon"
+          name: "Thanh"
+      - name: Show output from the last step
+        run: echo '${{ steps.greeting-step.outputs.greeting-text }}'
